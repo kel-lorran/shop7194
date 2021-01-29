@@ -51,8 +51,8 @@ namespace Shop
                 };
             });
 
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            // services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("conectionString")));
+            // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("conectionString")));
             // services.AddScoped<DataContext, DataContext>(); // está include em AddDbContext
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -66,9 +66,7 @@ namespace Shop
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
 
             app.UseHttpsRedirection();
 
